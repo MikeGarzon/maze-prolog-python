@@ -5,8 +5,7 @@ def leerArchivo(archivo):
 	c = [i[0].split() for i in c]
 	return c
 
-def inicio(mapa):
-	cont = 0
+def inicio(mapa,cont):
 	if mapa == []: return (-1,-1)
 	if "i" in mapa[0]: return ([cont,mapa[0].index("i")])
 	return inicio(mapa[1:],cont+1)
@@ -55,7 +54,7 @@ p.consult('laberinto.pl')
 maze = leerArchivo("maze.txt")  #CON ESTE CREE EL MAPA
 
 camino = []
-encontrar(inicio(maze),maze)
+encontrar(inicio(maze,0),maze)
 
 while (['0'] in camino): camino.remove(['0']) #AQUI QUITO EL 0 DE LAS HORIZONTALES
 
